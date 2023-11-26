@@ -1,0 +1,10 @@
+aws iam create-group --group-name "administrators"
+
+aws iam attach-group-policy --group-name "administrators" \
+ --policy-arn "arn:aws:iam::aws:policy/AdministratorAccess"
+
+aws iam create-user --user-name "admin1"
+
+aws iam add-user-to-group --group-name "administrators" --user-name "admin1"
+
+aws iam create-login-profile --user-name "admin1" --password 'password'
